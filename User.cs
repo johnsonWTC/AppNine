@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FunctionAppMYSQL
+namespace AppNine
 {
    public class User
     {

@@ -38,10 +38,14 @@ namespace AppNine
             if(user is null)
             {
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                      user = JsonConvert.DeserializeObject<User>(requestBody);
+                user = JsonConvert.DeserializeObject<User>(requestBody);
+                userContext.Add(user);
+                userContext.SaveChanges();
+            return new OkObjectResult($"{user.UserName} was added to the list");
             }
 
-            return new OkObjectResult(email.Value);
+            return new OkObjectResult($"{user.UserName} already exy list");
+        
 
         }
     }
